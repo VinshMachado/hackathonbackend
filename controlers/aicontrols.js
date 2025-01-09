@@ -8,6 +8,7 @@ const airouts = express.Router();
 const API_TOKEN = process.env.apikey;
 const hf = new HfInference(API_TOKEN);
 
+//context//
 const context = `Dengue: High fever, severe headache, joint and muscle pain, and skin rashes.
 Common Cold: Sneezing, runny or stuffy nose, sore throat, cough, mild fever, and fatigue.
 Malaria: High fever, chills, sweating, headache, nausea, vomiting, and muscle pain.
