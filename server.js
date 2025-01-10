@@ -2,8 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import airouts from "./view/ai.js";
 import dontationrouter from "./view/donation.js";
+import cors from "cors";
+
+app.use(cors());
 
 import mongoose from "mongoose";
+import chatsrouter from "./view/chat.js";
 dotenv.config();
 const databaseurl = process.env.database;
 const port = process.env.PORT;
@@ -23,6 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/ai", airouts);
 app.use("/donation", dontationrouter);
+app.use("/chats", chatsrouter);
 
 console.log(port);
 
