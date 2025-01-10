@@ -45,6 +45,27 @@ const detectsymptom = async (req, res) => {
   }
 };
 
-const translate = async (req, response) => {};
+const summarize = async (req, res) => {
+  const { text } = req.body;
+  console.log(text);
+  if (!text) {
+    return res
+      .status(400)
+      .json({ error: "context is required in the request body." });
+  }
+  try {
+    const result = await hf.summarization({
+      model: "Falconsai/text_summarization",
+      inputs: text,
+    });
 
-export default { detectsymptom };
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Error querying Hugging Face:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing your request." });
+  }
+};
+
+export default { detectsymptom, summarize };
