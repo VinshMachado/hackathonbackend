@@ -3,9 +3,6 @@ import dotenv from "dotenv";
 import airouts from "./view/ai.js";
 import dontationrouter from "./view/donation.js";
 import cors from "cors";
-
-app.use(cors());
-
 import mongoose from "mongoose";
 import chatsrouter from "./view/chat.js";
 dotenv.config();
@@ -20,6 +17,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("hello");
 });
