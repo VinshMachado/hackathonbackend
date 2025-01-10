@@ -24,4 +24,14 @@ const insert = async (req, res) => {
   }
 };
 
-export default { insert };
+const getdonations = async (req, res) => {
+  try {
+    const data = await donationlist.find();
+
+    res.send(data);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export default { insert, getdonations };
