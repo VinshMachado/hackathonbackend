@@ -6,6 +6,7 @@ import dontationrouter from "./view/donation.js";
 import mongoose from "mongoose";
 dotenv.config();
 const databaseurl = process.env.database;
+const port = process.env.PORT;
 
 mongoose.connect(`${databaseurl}`).then(() => {
   console.log("connected to db");
@@ -23,6 +24,8 @@ app.get("/", (req, res) => {
 app.use("/ai", airouts);
 app.use("/donation", dontationrouter);
 
-app.listen(5000, () => {
+console.log(port);
+
+app.listen(port, () => {
   console.log("server is running ");
 });
