@@ -7,5 +7,6 @@ import donationmodule from "../controlers/donations.js";
 const dontationrouter = express.Router();
 
 dontationrouter.post("/insert", donationmodule.insert);
+dontationrouter.get("/get", donationmodule.getdonations);
 
 export default dontationrouter;
