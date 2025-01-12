@@ -16,7 +16,28 @@ Allergies: Sneezing, runny nose, itchy eyes, skin rashes, and swelling.
 Typhoid: Prolonged fever, weakness, stomach pain, constipation, and headache.
 Asthma: Shortness of breath, wheezing, coughing (especially at night), and chest tightness.
 Chickenpox: Fever, fatigue, itchy red rashes, and fluid-filled blisters.
-`;
+Pneumonia: Chest pain, cough with phlegm, fever, sweating, and chills.
+COVID-19: Fever, dry cough, fatigue, loss of taste or smell, and difficulty breathing.
+Flu (Influenza): Sudden fever, chills, sore throat, muscle aches, and fatigue.
+Tuberculosis: Persistent cough (sometimes with blood), weight loss, night sweats, and fever.
+Hypertension: Often asymptomatic, but may include headaches, shortness of breath, or nosebleeds in severe cases.
+Diabetes: Increased thirst, frequent urination, extreme hunger, and unintentional weight loss.
+Migraine: Severe headache, sensitivity to light and sound, nausea, and visual disturbances.
+Sinusitis: Nasal congestion, facial pain or pressure, headache, and postnasal drip.
+Anemia: Fatigue, weakness, pale skin, shortness of breath, and dizziness.
+Arthritis: Joint pain, stiffness, swelling, and reduced range of motion.
+Appendicitis: Sudden abdominal pain (starting near the navel and shifting to the lower right), nausea, vomiting, and fever.
+Measles: Fever, dry cough, runny nose, inflamed eyes, and a red blotchy skin rash.
+Bronchitis: Persistent cough, production of mucus, fatigue, and slight fever or chills.
+Gallstones: Severe abdominal pain, nausea, vomiting, and yellowing of the skin or eyes (jaundice).
+Gastroenteritis: Diarrhea, vomiting, abdominal cramps, and dehydration.
+Stroke: Sudden weakness or numbness on one side of the body, confusion, difficulty speaking, and loss of balance.
+Heart Attack: Chest pain or discomfort, shortness of breath, nausea, and cold sweats.
+Kidney Stones: Severe back or side pain, blood in the urine, nausea, and frequent urination.
+Obesity: Excess body weight, fatigue, joint pain, and increased risk of associated health conditions.
+Depression: Persistent sadness, loss of interest in activities, fatigue, and changes in sleep or appetite.
+Anxiety: Excessive worry, restlessness, rapid heart rate, and difficulty concentrating.
+Epilepsy: Seizures, temporary confusion, staring spells, and uncontrollable movements.`; 
 
 const detectsymptom = async (req, res) => {
   const { question } = req.body;
