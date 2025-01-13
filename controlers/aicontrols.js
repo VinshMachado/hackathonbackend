@@ -37,7 +37,7 @@ Kidney Stones: Severe back or side pain, blood in the urine, nausea, and frequen
 Obesity: Excess body weight, fatigue, joint pain, and increased risk of associated health conditions.
 Depression: Persistent sadness, loss of interest in activities, fatigue, and changes in sleep or appetite.
 Anxiety: Excessive worry, restlessness, rapid heart rate, and difficulty concentrating.
-Epilepsy: Seizures, temporary confusion, staring spells, and uncontrollable movements.`; 
+Epilepsy: Seizures, temporary confusion, staring spells, and uncontrollable movements.`;
 
 const detectsymptom = async (req, res) => {
   const { question } = req.body;
@@ -49,15 +49,40 @@ const detectsymptom = async (req, res) => {
   }
 
   try {
-    const result = await hf.questionAnswering({
-      model: "deepset/roberta-base-squad2",
-      inputs: {
-        question,
-        context,
-      },
-    });
+    const trimmedQuestion = question.trim().toLowerCase();
 
-    res.status(200).json(result);
+    // Handle casual inputs
+    const casualReplies = {
+      hi: "Hello! How can I assist you today?",
+      hello: "Hi there! What can I do for you?",
+      "how are you": "I'm just a bot, but I'm here to help you!",
+      hey: "Hey! What's on your mind?",
+      "good morning": "Good morning! How can I help?",
+      "good evening": "Good evening! What can I assist you with?",
+      "what's up": "Not much! How can I assist you today?",
+      yo: "yo MF",
+      yooooooo: "yooyoyoyoyoyoyoyo",
+    };
+
+    if (casualReplies[trimmedQuestion]) {
+      // Send a casual reply
+      return res.status(200).json({
+        score: 3.34319594230692e-8,
+        start: 0,
+        end: 6,
+        answer: casualReplies[trimmedQuestion],
+      });
+    } else {
+      const result = await hf.questionAnswering({
+        model: "deepset/roberta-base-squad2",
+        inputs: {
+          question,
+          context,
+        },
+      });
+
+      res.status(200).json(result);
+    }
   } catch (error) {
     console.error("Error querying Hugging Face:", error);
     res
