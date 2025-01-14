@@ -53,13 +53,17 @@ const detectsymptom = async (req, res) => {
 
     // Handle casual inputs
     const casualReplies = {
-      hi: "Hello! How can I assist you today?",
-      hello: "Hi there! What can I do for you?",
+      hi: "Hello! could you please give your symptoms?",
+      hello: "Hi there! could you please give your symptoms??",
       "how are you": "I'm just a bot, but I'm here to help you!",
-      hey: "Hey! What's on your mind?",
-      "good morning": "Good morning! How can I help?",
-      "good evening": "Good evening! What can I assist you with?",
-      "what's up": "Not much! How can I assist you today?",
+      hey: "Hey! could you please give your symptoms??",
+      "good morning": "Good morning!could you please give your symptoms??",
+      "good evening": "Good evening! could you please give your symptoms??",
+      "what's up": "Not much! could you please give your symptoms??",
+      "whats up": "Not much! could you please give your symptoms??",
+      "sup": "Not much! could you please give your symptoms??",
+      "no": "than fuk off",
+      "yes":"then give no",
       yo: "yo MF",
       yooooooo: "yooyoyoyoyoyoyoyo",
     };
